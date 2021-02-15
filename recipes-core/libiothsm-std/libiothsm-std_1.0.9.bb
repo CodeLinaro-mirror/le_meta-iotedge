@@ -5,17 +5,20 @@ LIC_FILES_CHKSUM=" \
 file://LICENSE;md5=b98fddd052bb2f5ddbcdbd417ffb26a8 \
 "
 
-BRANCH = "release/1.0.9"
-SRCREV = "1f7cf6a21dfa365c8f21475553c544f4df02dd44"
+BRANCH = "master"
+SRCREV = "a4ae2c116296ad086a9f2cb7ccd2f077c5692301"
 
 SRC_URI += "gitsm://github.com/azure/iotedge.git;protocol=https;branch=${BRANCH}"
 
 S = "${WORKDIR}/git/edgelet/hsm-sys/azure-iot-hsm-c"
 
-do_configure_prepend() {
+do_checkout() {
     cd ${WORKDIR}/git
+    git checkout 1.0.9
     git submodule update --init --recursive
 }
+
+addtask do_checkout after do_unpack before do_populate_lic do_patch
 
 DEPENDS += "openssl"
 PROVIDES += "virtual/libiothsm"

@@ -1,1 +1,1 @@
-export VERSION = "1.0.9"
+export VERSION = "${PV}"
