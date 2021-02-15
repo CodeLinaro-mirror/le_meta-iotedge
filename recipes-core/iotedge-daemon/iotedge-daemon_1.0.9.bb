@@ -1,17 +1,20 @@
 inherit cargo
 
-BRANCH = "release/1.0.9"
-SRCREV = "1f7cf6a21dfa365c8f21475553c544f4df02dd44"
+BRANCH = "master"
+SRCREV = "a4ae2c116296ad086a9f2cb7ccd2f077c5692301"
 
 SRC_URI += "gitsm://github.com/azure/iotedge.git;protocol=https;branch=${BRANCH}"
 
 S = "${WORKDIR}/git/edgelet/iotedged"
 CARGO_SRC_DIR="iotedged"
 
-do_configure_prepend() {
+do_checkout() {
     cd ${WORKDIR}/git
+    git checkout 1.0.9
     git submodule update --init --recursive
 }
+
+addtask do_checkout after do_unpack before do_populate_lic do_patch
 
 SRC_URI += " \
 crate://crates.io/adler32/1.0.4 \
