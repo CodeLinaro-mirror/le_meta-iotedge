@@ -204,20 +204,17 @@ crate://crates.io/windows-service/0.1.0 \
 crate://crates.io/winreg/0.5.1 \
 crate://crates.io/ws2_32-sys/0.2.1 \
 crate://crates.io/yaml-rust/0.4.0 \
-git://github.com/Azure/hyperlocal-windows;protocol=https;name=hyperlocal-windows;destsuffix=hyperlocal-windows \
-git://github.com/Azure/mio-uds-windows.git;protocol=https;name=mio-uds-windows;destsuffix=mio-uds-windows \
-git://github.com/Azure/tokio-uds-windows.git;protocol=https;name=tokio-uds-windows;destsuffix=tokio-uds-windows \
 "
 
-SRCREV_FORMAT .= "_hyperlocal-windows"
-SRCREV_hyperlocal-windows = "${AUTOREV}"
-EXTRA_OECARGO_PATHS += "${WORKDIR}/hyperlocal-windows"
-SRCREV_FORMAT .= "_mio-uds-windows"
-SRCREV_mio-uds-windows = "${AUTOREV}"
-EXTRA_OECARGO_PATHS += "${WORKDIR}/mio-uds-windows"
-SRCREV_FORMAT .= "_tokio-uds-windows"
-SRCREV_tokio-uds-windows = "${AUTOREV}"
-EXTRA_OECARGO_PATHS += "${WORKDIR}/tokio-uds-windows"
+#SRCREV_FORMAT .= "_hyperlocal-windows"
+#SRCREV_hyperlocal-windows = "${AUTOREV}"
+#EXTRA_OECARGO_PATHS += "${WORKDIR}/hyperlocal-windows"
+#SRCREV_FORMAT .= "_mio-uds-windows"
+#SRCREV_mio-uds-windows = "${AUTOREV}"
+#EXTRA_OECARGO_PATHS += "${WORKDIR}/mio-uds-windows"
+#SRCREV_FORMAT .= "_tokio-uds-windows"
+#SRCREV_tokio-uds-windows = "${AUTOREV}"
+#EXTRA_OECARGO_PATHS += "${WORKDIR}/tokio-uds-windows"
 
 LIC_FILES_CHKSUM=" \
 file://../../LICENSE;md5=0f7e3b1308cb5c00b372a6e78835732d \
