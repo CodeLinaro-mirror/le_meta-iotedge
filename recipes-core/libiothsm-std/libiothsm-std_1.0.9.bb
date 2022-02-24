@@ -5,16 +5,16 @@ LIC_FILES_CHKSUM=" \
 file://LICENSE;md5=b98fddd052bb2f5ddbcdbd417ffb26a8 \
 "
 
-BRANCH = "master"
-SRCREV = "a4ae2c116296ad086a9f2cb7ccd2f077c5692301"
+BRANCH = "main"
+SRCREV = "e5691ce2f6da11ab95bb87f1e064f7cee917b257"
 
-SRC_URI += "gitsm://github.com/azure/iotedge.git;protocol=https;branch=${BRANCH}"
+SRC_URI += "git://source.codeaurora.org/quic/le/iotedge.git;protocol=https;branch=iotedge/${BRANCH}"
 
 S = "${WORKDIR}/git/edgelet/hsm-sys/azure-iot-hsm-c"
 
 do_checkout() {
     cd ${WORKDIR}/git
-    git checkout 1.0.9
+    git checkout e5691ce2f6da11ab95bb87f1e064f7cee917b257
     git submodule update --init --recursive
 }
 
