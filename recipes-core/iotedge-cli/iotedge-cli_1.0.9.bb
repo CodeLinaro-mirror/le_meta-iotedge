@@ -1,16 +1,16 @@
 inherit cargo
 
-BRANCH = "master"
-SRCREV = "a4ae2c116296ad086a9f2cb7ccd2f077c5692301"
+BRANCH = "main"
+SRCREV = "e5691ce2f6da11ab95bb87f1e064f7cee917b257"
 
-SRC_URI += "gitsm://github.com/azure/iotedge.git;protocol=https;branch=${BRANCH}"
+SRC_URI += "git://source.codeaurora.org/quic/le/iotedge.git;protocol=https;branch=iotedge/${BRANCH}"
 
 S = "${WORKDIR}/git/edgelet/iotedge"
 CARGO_SRC_DIR="iotedge"
 
 do_checkout() {
     cd ${WORKDIR}/git
-    git checkout 1.0.9
+    git checkout e5691ce2f6da11ab95bb87f1e064f7cee917b257
     git submodule update --init --recursive
 }
 
@@ -36,6 +36,7 @@ crate://crates.io/byte-tools/0.2.0 \
 crate://crates.io/byte-unit/3.0.3 \
 crate://crates.io/byteorder/1.3.1 \
 crate://crates.io/bytes/0.4.8 \
+crate://crates.io/bytes/0.4.12 \
 crate://crates.io/bzip2/0.3.3 \
 crate://crates.io/bzip2-sys/0.1.7 \
 crate://crates.io/c2-chacha/0.2.2 \
@@ -77,16 +78,21 @@ crate://crates.io/foreign-types-shared/0.1.1 \
 crate://crates.io/fuchsia-zircon/0.3.3 \
 crate://crates.io/fuchsia-zircon-sys/0.3.3 \
 crate://crates.io/futures/0.1.24 \
+crate://crates.io/futures/0.1.29 \
 crate://crates.io/futures-cpupool/0.1.8 \
 crate://crates.io/generic-array/0.9.0 \
 crate://crates.io/getrandom/0.1.6 \
 crate://crates.io/h2/0.1.12 \
+crate://crates.io/h2/0.1.26 \
 crate://crates.io/hex/0.3.2 \
 crate://crates.io/hmac/0.5.0 \
 crate://crates.io/http/0.1.14 \
+crate://crates.io/http/0.1.18 \
+crate://crates.io/http-body/0.1.0 \
 crate://crates.io/httparse/1.2.4 \
 crate://crates.io/humantime/1.1.1 \
 crate://crates.io/hyper/0.12.17 \
+crate://crates.io/hyper/0.12.35 \
 crate://crates.io/hyper-proxy/0.5.0 \
 crate://crates.io/hyper-tls/0.3.2 \
 crate://crates.io/hyperlocal/0.6.0 \
@@ -96,8 +102,10 @@ crate://crates.io/iovec/0.1.2 \
 crate://crates.io/itoa/0.4.1 \
 crate://crates.io/json-patch/0.2.5 \
 crate://crates.io/k8s-openapi/0.4.0 \
+crate://crates.io/k8s-openapi/0.5.1 \
 crate://crates.io/kernel32-sys/0.2.2 \
 crate://crates.io/lazy_static/1.3.0 \
+crate://crates.io/lazy_static/1.4.0 \
 crate://crates.io/lazycell/0.6.0 \
 crate://crates.io/lazycell/1.2.0 \
 crate://crates.io/libc/0.2.66 \
@@ -132,14 +140,17 @@ crate://crates.io/objekt/0.1.2 \
 crate://crates.io/openssl/0.10.12 \
 crate://crates.io/openssl-probe/0.1.2 \
 crate://crates.io/openssl-sys/0.9.36 \
+crate://crates.io/ordered-float/1.0.2 \
 crate://crates.io/parse_duration/2.0.1 \
 crate://crates.io/percent-encoding/1.0.1 \
 crate://crates.io/pkg-config/0.3.11 \
 crate://crates.io/podio/0.1.6 \
 crate://crates.io/ppv-lite86/0.2.5 \
 crate://crates.io/proc-macro2/0.4.19 \
+crate://crates.io/proc-macro2/1.0.6 \
 crate://crates.io/quick-error/1.2.1 \
 crate://crates.io/quote/0.6.8 \
+crate://crates.io/quote/1.0.2 \
 crate://crates.io/rand/0.4.2 \
 crate://crates.io/rand/0.5.4 \
 crate://crates.io/rand/0.7.2 \
@@ -170,6 +181,7 @@ crate://crates.io/security-framework-sys/0.2.1 \
 crate://crates.io/semver/0.9.0 \
 crate://crates.io/semver-parser/0.7.0 \
 crate://crates.io/serde/1.0.92 \
+crate://crates.io/serde-value/0.6.0 \
 crate://crates.io/serde_derive/1.0.92 \
 crate://crates.io/serde_json/1.0.27 \
 crate://crates.io/serde_yaml/0.7.4 \
@@ -179,9 +191,11 @@ crate://crates.io/slab/0.4.1 \
 crate://crates.io/socket2/0.3.5 \
 crate://crates.io/spin/0.5.2 \
 crate://crates.io/string/0.1.1 \
+crate://crates.io/string/0.2.1 \
 crate://crates.io/strsim/0.7.0 \
 crate://crates.io/syn/0.14.9 \
 crate://crates.io/syn/0.15.36 \
+crate://crates.io/syn/1.0.11 \
 crate://crates.io/synstructure/0.9.0 \
 crate://crates.io/sysinfo/0.9.6 \
 crate://crates.io/tabwriter/1.0.4 \
@@ -189,23 +203,33 @@ crate://crates.io/tempdir/0.3.7 \
 crate://crates.io/tempfile/3.1.0 \
 crate://crates.io/termcolor/0.3.6 \
 crate://crates.io/termion/1.5.1 \
+crate://crates.io/test-case/0.3.3 \
 crate://crates.io/textwrap/0.9.0 \
 crate://crates.io/thread_local/0.3.5 \
 crate://crates.io/time/0.1.39 \
 crate://crates.io/tokio/0.1.11 \
+crate://crates.io/tokio/0.1.22 \
+crate://crates.io/tokio-buf/0.1.1 \
 crate://crates.io/tokio-codec/0.1.0 \
 crate://crates.io/tokio-current-thread/0.1.3 \
+crate://crates.io/tokio-current-thread/0.1.6 \
 crate://crates.io/tokio-executor/0.1.5 \
+crate://crates.io/tokio-executor/0.1.8 \
 crate://crates.io/tokio-fs/0.1.3 \
+crate://crates.io/tokio-fs/0.1.6 \
 crate://crates.io/tokio-io/0.1.8 \
 crate://crates.io/tokio-reactor/0.1.1 \
 crate://crates.io/tokio-signal/0.2.5 \
+crate://crates.io/tokio-sync/0.1.7 \
 crate://crates.io/tokio-tcp/0.1.0 \
 crate://crates.io/tokio-threadpool/0.1.6 \
+crate://crates.io/tokio-threadpool/0.1.16 \
 crate://crates.io/tokio-timer/0.2.6 \
+crate://crates.io/tokio-timer/0.2.11 \
 crate://crates.io/tokio-tls/0.2.0 \
 crate://crates.io/tokio-udp/0.1.0 \
 crate://crates.io/tokio-uds/0.2.2 \
+crate://crates.io/tokio-uds/0.2.5 \
 crate://crates.io/treediff/3.0.1 \
 crate://crates.io/try-lock/0.2.2 \
 crate://crates.io/typed-headers/0.1.0 \
@@ -216,6 +240,7 @@ crate://crates.io/unicode-bidi/0.3.4 \
 crate://crates.io/unicode-normalization/0.1.5 \
 crate://crates.io/unicode-width/0.1.4 \
 crate://crates.io/unicode-xid/0.1.0 \
+crate://crates.io/unicode-xid/0.2.0 \
 crate://crates.io/unreachable/1.0.0 \
 crate://crates.io/url/1.7.2 \
 crate://crates.io/url_serde/0.2.0 \
@@ -223,8 +248,10 @@ crate://crates.io/utf8-ranges/1.0.0 \
 crate://crates.io/vcpkg/0.2.3 \
 crate://crates.io/vec_map/0.8.0 \
 crate://crates.io/version_check/0.1.3 \
+crate://crates.io/version_check/0.9.1 \
 crate://crates.io/void/1.0.2 \
 crate://crates.io/want/0.0.6 \
+crate://crates.io/want/0.2.0 \
 crate://crates.io/widestring/0.3.0 \
 crate://crates.io/winapi/0.2.8 \
 crate://crates.io/winapi/0.3.5 \
@@ -237,6 +264,9 @@ crate://crates.io/winreg/0.5.1 \
 crate://crates.io/ws2_32-sys/0.2.1 \
 crate://crates.io/yaml-rust/0.4.0 \
 crate://crates.io/zip/0.5.3 \
+git://source.codeaurora.org/quic/le/hyperlocal-windows;protocol=https;branch=hyperlocal-windows/main;name=hyperlocal-windows;destsuffix=hyperlocal-windows \
+git://source.codeaurora.org/quic/le/mio-uds-windows.git;protocol=https;branch=mio-uds-windows/main;name=mio-uds-windows;destsuffix=mio-uds-windows \
+git://source.codeaurora.org/quic/le/tokio-uds-windows.git;protocol=https;branch=tokio-uds-windows/main;name=tokio-uds-windows;destsuffix=tokio-uds-windows \
 "
 
 #SRCREV_FORMAT .= "_mio-uds-windows"
@@ -251,7 +281,7 @@ crate://crates.io/zip/0.5.3 \
 
 LIC_FILES_CHKSUM=" \
 file://../../LICENSE;md5=0f7e3b1308cb5c00b372a6e78835732d \
-file://../../THIRDPARTYNOTICES;md5=1cda6520d68499d4f60c7270445fe436 \
+file://../../THIRDPARTYNOTICES;md5=1c083edad21d29c2b84e59590d5e3114 \
 "
 
 SUMMARY = "The iotedge tool is used to manage the IoT Edge runtime."
