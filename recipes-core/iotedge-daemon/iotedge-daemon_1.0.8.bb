@@ -200,9 +200,9 @@ crate://crates.io/windows-service/0.1.0 \
 crate://crates.io/winreg/0.5.1 \
 crate://crates.io/ws2_32-sys/0.2.1 \
 crate://crates.io/yaml-rust/0.4.0 \
-git://source.codeaurora.org/quic/le/hyperlocal-windows;protocol=https;branch=hyperlocal-windows/main;name=hyperlocal-windows;destsuffix=hyperlocal-windows \
-git://source.codeaurora.org/quic/le/mio-uds-windows.git;protocol=https;branch=mio-uds-windows/main;name=mio-uds-windows;destsuffix=mio-uds-windows \
-git://source.codeaurora.org/quic/le/tokio-uds-windows.git;protocol=https;branch=tokio-uds-windows/main;name=tokio-uds-windows;destsuffix=tokio-uds-windows \
+${CLO_LE_GIT}/hyperlocal-windows;protocol=https;branch=hyperlocal-windows/main;name=hyperlocal-windows;destsuffix=hyperlocal-windows \
+${CLO_LE_GIT}/mio-uds-windows.git;protocol=https;branch=mio-uds-windows/main;name=mio-uds-windows;destsuffix=mio-uds-windows \
+${CLO_LE_GIT}/tokio-uds-windows.git;protocol=https;branch=tokio-uds-windows/main;name=tokio-uds-windows;destsuffix=tokio-uds-windows \
 "
 
 #SRCREV_FORMAT .= "_mio-uds-windows"
