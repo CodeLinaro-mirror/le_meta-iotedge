@@ -208,15 +208,15 @@ ${CLO_LE_GIT}/mio-uds-windows.git;protocol=https;branch=mio-uds-windows/main;nam
 ${CLO_LE_GIT}/tokio-uds-windows.git;protocol=https;branch=tokio-uds-windows/main;name=tokio-uds-windows;destsuffix=tokio-uds-windows \
 "
 
-#SRCREV_FORMAT .= "_hyperlocal-windows"
-#SRCREV_hyperlocal-windows = "${AUTOREV}"
-#EXTRA_OECARGO_PATHS += "${WORKDIR}/hyperlocal-windows"
-#SRCREV_FORMAT .= "_mio-uds-windows"
-#SRCREV_mio-uds-windows = "${AUTOREV}"
-#EXTRA_OECARGO_PATHS += "${WORKDIR}/mio-uds-windows"
-#SRCREV_FORMAT .= "_tokio-uds-windows"
-#SRCREV_tokio-uds-windows = "${AUTOREV}"
-#EXTRA_OECARGO_PATHS += "${WORKDIR}/tokio-uds-windows"
+SRCREV_FORMAT .= "_hyperlocal-windows"
+SRCREV_hyperlocal-windows = "${AUTOREV}"
+EXTRA_OECARGO_PATHS += "${WORKDIR}/hyperlocal-windows"
+SRCREV_FORMAT .= "_mio-uds-windows"
+SRCREV_mio-uds-windows = "${AUTOREV}"
+EXTRA_OECARGO_PATHS += "${WORKDIR}/mio-uds-windows"
+SRCREV_FORMAT .= "_tokio-uds-windows"
+SRCREV_tokio-uds-windows = "${AUTOREV}"
+EXTRA_OECARGO_PATHS += "${WORKDIR}/tokio-uds-windows"
 
 LIC_FILES_CHKSUM=" \
 file://../../LICENSE;md5=0f7e3b1308cb5c00b372a6e78835732d \
