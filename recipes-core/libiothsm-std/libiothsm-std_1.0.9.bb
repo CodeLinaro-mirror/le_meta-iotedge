@@ -8,7 +8,7 @@ file://LICENSE;md5=b98fddd052bb2f5ddbcdbd417ffb26a8 \
 BRANCH = "main"
 SRCREV = "e5691ce2f6da11ab95bb87f1e064f7cee917b257"
 
-SRC_URI += "git://source.codeaurora.org/quic/le/iotedge.git;protocol=https;branch=iotedge/${BRANCH}"
+SRC_URI += "${CLO_LE_GIT}/iotedge.git;protocol=https;branch=iotedge/${BRANCH}"
 
 S = "${WORKDIR}/git/edgelet/hsm-sys/azure-iot-hsm-c"
 
